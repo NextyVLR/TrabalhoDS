@@ -3,18 +3,6 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
        return render_template('index.html')
-       
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    if request.method == 'POST':
-        username = request.form['username']  # Removida a vírgula desnecessária
-        password = request.form['password']
-        if username == 'admin' and password == 'password':
-            return 'Login com sucesso'  # Redireciona para home em sucesso
-        else:
-            error = 'Credenciais inválidas. Tente novamente.'
-    return render_template('login.html', error=error)
 
 
 if __name__ == '__main__':
